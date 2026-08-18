@@ -64,4 +64,8 @@ public class JwtProvider {
         }
         return false;
     }
+
+    public void validateTokenOrThrow(String token) {
+        Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
+    }
 }
